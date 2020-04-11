@@ -1,56 +1,56 @@
 import React from "react"
 
-class Formulario extends React.Component {
+class Formu extends React.Component {
 
     constructor(props) {
         super(props)
 
         //this.setState({Objeto})
         this.state = { //El estado es solo para este componente
-            nombre: "",
-            correo: "",
-            fecha: new Date ()
+            name: "",
+            mail: "",
+            date: new Date ()
         }
         // Se construye la instancia con las propiedades que le pasemos. Es una necesidad
         // cuando el componente tiene props. Si el componente no recibe propiedades
         // no es necesario usar el constructor.
-        this.cambiarNombre = this.cambiarNombre.bind(this)
-        this.cambiarCorreo = this.cambiarCorreo.bind(this)
-        this.cambiarFecha = this.cambiarFecha.bind(this)
+        this.changeName = this.changeName.bind(this)
+        this.changeMail = this.changeMail.bind(this)
+        this.changeDate = this.changeDate.bind(this)
     }
 
-    cambiarNombre(e) {
+    changeName(e) {
         this.setState({
-            nombre: e.target.value
+            name: e.target.value
         })
     }
-    cambiarCorreo(e) {
+    changeMail(e) {
         this.setState({
-            correo: e.target.value
+            mail: e.target.value
         })
     }
-    cambiarFecha(e) {
+    changeDate(e) {
         this.setState({
-            fecha: new Date ()
+            date: new Date ()
         })
     }
     render () {
         return (
             <div className="ed-grid">
-               <h1>Formulario {this.props.nombre}</h1> 
-        <h4>Fecha actual: {Math.ceil(this.state.fecha/1000)}</h4>
+               <h1>Formulario {this.props.name}</h1> 
+        <h4>Fecha actual: {Math.ceil(this.state.date/1000)}</h4>
                <form >
                         <div className="ed-grid m-grid-2">
                             
                             <div className="form__item">
                                 <label> Nombre completo</label>
                                 <input type="text" 
-                                onChange= {this.cambiarNombre}/>
+                                onChange= {this.changeName}/>
                             </div>
 
                             <div className="form__item">
                                 <label> Correo electrónico</label>
-                                <input type="email" onChange= {this.cambiarCorreo}/>
+                                <input type="email" onChange= {this.changeMail}/>
                             </div>
                             <div className="form__item">
                                 <input className="button full" type="submit" value= "Enviar"/>
@@ -59,17 +59,17 @@ class Formulario extends React.Component {
                         </div>
                </form>
                 <div>
-                    <h2>{`Hola ${this.state.nombre}`}</h2>
-                    <span> {`Tu correo es: ${this.state.correo}`}</span>
+                    <h2>{`Hola ${this.state.name}`}</h2>
+                    <span> {`Tu mail es: ${this.state.mail}`}</span>
                </div>
             </div>
         )
     }
     componentDidMount()  {
-        let elemento = document.getElementById("elemento")
+        let element = document.getElementById("form-element")
         
         this.intervaloFecha = setInterval (() =>{
-            this.cambiarFecha()
+            this.changeDate()
         },1000)
 
     
@@ -85,4 +85,4 @@ class Formulario extends React.Component {
 }
 
 
-export default Formulario
+export default Form

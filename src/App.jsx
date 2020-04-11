@@ -3,8 +3,10 @@ import "./styles/styles.scss"
 import CourseGrid from './CourseGrid'
 import Course from './Course'
 import Banner from './Banner'
-import Formulario from './Formulario'
+import Form from './Form'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import MainMenu from './MainMenu'
+import History from './History'
 
 /* const cursos = [{
     "title": "React desde cero",
@@ -34,12 +36,14 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 const App = () => (
     <>
       <Router> 
+          <MainMenu />
           <Switch>
             <Route path= "/" exact component = {Banner}/>
             <Route path="/cursos/:id" component = {Course}/> 
             <Route path="/cursos" exact component = {CourseGrid}/>
-            
-            <Route path="/formulario" exact component = { () => <Formulario name="Pagina de contacto"/>}/>
+            <Route path="/historial/:valor" component = {Historial}/>
+            <Route path="/historial" component = {History}/>
+            <Route path="/formulario" exact component = { () => <Form name="Pagina de contacto"/>}/>
             <Route component= {() => (
                 <div>
                     <h1>
@@ -65,3 +69,5 @@ export default App;
 6. En JSX se utiliza "classNameName" para utilizar las clases
 7. el atributo for en JSX pasa a ser htmlFor
 8. No se puede utilizar if, else y while en JSX*/
+
+/* Agrupar por funcionalidad todo lo que tenga que ver con curso */

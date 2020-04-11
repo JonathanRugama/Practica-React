@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 
             
-const Curso = ({id,title, image, price, profesor}) => (
+const CourseCard = ({id,title, image, price, professor}) => (
     
     <article className="card">
     <div className="img-container s-ratio-16-9 s-radius-tr s-radius-tl">
@@ -21,7 +21,7 @@ const Curso = ({id,title, image, price, profesor}) => (
         <div className="card__data s-border s-radius-br s-radius-bl s-pxy-2">
             <h3 className="center">{title}</h3>
             <div className="s-main-center">
-                {`Prof: ${profesor}`}
+                {`Prof: ${professor}`}
             </div>
             <div className="s-main-center">
                 <a className="button--ghost-alert button--tiny" href="https://ed.team">{`$ ${price}`}</a>
@@ -30,16 +30,16 @@ const Curso = ({id,title, image, price, profesor}) => (
     </article>
 )
 
-Curso.propTypes = {
+CourseCard.propTypes = {
     title: PropTypes.string,
     image: PropTypes.string,
     price: PropTypes.string,
-    profesor: PropTypes.string
+    professor: PropTypes.string
 }
-Curso.defaultProps = {
+CourseCard.defaultProps = {
     title: "No se encontró titulo",
     image: "https://static.vecteezy.com/system/resources/thumbnails/000/463/940/small/Background99.jpg?1555703569?nocache=true&cache_buster=220eba6d-5617-490e-ba3d-958828fa2337",
     price: "--",
-    profesor: ""
+    professor: ""
 }
-export default Curso 
+export default CourseCard 
