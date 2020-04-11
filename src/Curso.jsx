@@ -1,17 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 
 
             
-const Curso = ({title, image, price, profesor}) => (
+const Curso = ({id,title, image, price, profesor}) => (
     
     <article className="card">
     <div className="img-container s-ratio-16-9 s-radius-tr s-radius-tl">
-            {
-                image
+            {   
+                <Link to={`/cursos/${id}`}>
+                    image
                 ? <img src={image} alt={title}/>
                 : <p>No hay imagen</p>
+                </Link>
+                
             }
         </div>
         <div className="card__data s-border s-radius-br s-radius-bl s-pxy-2">
