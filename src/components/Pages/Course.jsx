@@ -12,6 +12,13 @@ const Course = ({ match }) => {
             profesor: "Jona Rugama"
           
     })
+    const changeTitle = (text) => {
+        setState({
+            ...state,     /* Aca le estamos diciendo que pase todas las demas propiedades, y que solamente
+            modifique el titulo */
+            title: text
+        })
+    }
 
     console.log(state)
     //const cursoActual = cursos.filter (c => c.id === parseInt(match.params.id))[0]
@@ -24,6 +31,7 @@ const Course = ({ match }) => {
                     <h1 className="m-cols-3">Curso: {state.title}</h1>
                      <img className="m-cols-1" src= {state.image} alt="Imagen"/>
                      <p className="m-cols-2">Profesor {state.profesor}</p>
+                     <button onClick ={changeTitle.bind(this, "Go desde cero")}>Cambiar titulo</button>
                 </>    
                 ) : 
                     <h1>El curso no existe</h1>
