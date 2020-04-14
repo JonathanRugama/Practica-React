@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 
             
-const CourseCard = ({id,title, image, price, professor}) => (
+const CourseCard = ({key,id,title, image, price, professor}) => (
     
     <article className="card">
     <div className="img-container s-ratio-16-9 s-radius-tr s-radius-tl">

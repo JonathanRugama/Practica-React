@@ -1,6 +1,6 @@
 import React from "react"
 
-class Formu extends React.Component {
+class Form extends React.Component {
 
     constructor(props) {
         super(props)

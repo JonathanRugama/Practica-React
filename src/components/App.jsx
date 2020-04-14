@@ -1,12 +1,14 @@
 import React from 'react';
-import "./styles/styles.scss"
-import CourseGrid from './CourseGrid'
-import Course from './Course'
-import Banner from './Banner'
-import Form from './Form'
+import "../styles/styles.scss"
+import Courses from './Pages/Courses'
+import Course from './Pages/Course'
+
+import Form from './Pages/Form'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import MainMenu from './MainMenu'
-import History from './History'
+import MainMenu from './Organisms/MainMenu'
+import History from './Pages/History'
+import Home from './Pages/Home'
+import Users from './Pages/Users'
 
 /* const cursos = [{
     "title": "React desde cero",
@@ -38,11 +40,12 @@ const App = () => (
       <Router> 
           <MainMenu />
           <Switch>
-            <Route path= "/" exact component = {Banner}/>
+            <Route path= "/" exact component = {Home}/>
             <Route path="/cursos/:id" component = {Course}/> 
-            <Route path="/cursos" exact component = {CourseGrid}/>
-            <Route path="/historial/:valor" component = {Historial}/>
+            <Route path="/cursos" exact component = {Courses}/>
+            
             <Route path="/historial" component = {History}/>
+            <Route path="/usuarios" component = {Users}/>
             <Route path="/formulario" exact component = { () => <Form name="Pagina de contacto"/>}/>
             <Route component= {() => (
                 <div>
@@ -70,4 +73,17 @@ export default App;
 7. el atributo for en JSX pasa a ser htmlFor
 8. No se puede utilizar if, else y while en JSX*/
 
-/* Agrupar por funcionalidad todo lo que tenga que ver con curso */
+/* Agrupar por funcionalidad todo lo que tenga que ver con curso  por ejemplo
+
+src/Components
+    -Atoms
+    -Molecules
+    -Organisms
+    -Templates
+    -Pages
+
+src/Course/CoursePage.jsx
+src/Course/CourseCard.jsx
+src/Course/CourseGrid.jsx
+
+src/Forms/FormPage.jsx*/
