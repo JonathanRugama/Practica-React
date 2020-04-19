@@ -2,7 +2,7 @@ import React from 'react';
 import "../styles/styles.scss"
 import AppRoutes from './AppRoutes';
 import { Provider } from 'react-redux';
-import store from "./Redux/store"
+import store from "../redux/store"
 
 
 /* const cursos = [{
