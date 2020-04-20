@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-import { addToCart } from '../../redux/actionCreators'
+import { addToCart, removeOfCart } from '../../redux/actionCreators'
 import {connect} from "react-redux"
 
 
             
-const CourseCard = ({key,id,title, image, price, professor, addCourseToCart}) => (
+const CourseCard = ({key,id,title, image, price, professor, addCourseToCart, removeCourseOfCart, cart}) => (
     
     <article className="card">
     <div className="img-container s-ratio-16-9 s-radius-tr s-radius-tl">
@@ -25,10 +25,21 @@ const CourseCard = ({key,id,title, image, price, professor, addCourseToCart}) =>
                 {`Prof: ${professor}`}
             </div>
             <div className="s-main-center">
-                <button className="button--ghost-alert button--tiny" 
-                onClick={()=> addCourseToCart(id)}>
-                    {`$ ${price}`}
-                </button>
+                {
+                    cart.find(a => a === id) 
+                    ? /* Esto es verdadero? */
+                    <button className="button--ghost-alert button--tiny" 
+                    onClick={() =>removeCourseOfCart(id)}>Remover</button>
+                    : /* Si es falso, haga esto otro */
+                    <button className="button--ghost-alert button--tiny" 
+                    onClick=
+                    {()=> addCourseToCart(id)}>
+                        {
+                       `$ ${price}`
+                        }
+                    </button>
+                }
+               
             </div>
         </div>
     </article>
@@ -48,11 +59,16 @@ CourseCard.defaultProps = {
 }
 
 
-const mapStateToProps = () => ({})
+const mapStateToProps = state => ({
+    cart: state.cartReducer.cart
+})
 
 const mapDispatchToProps = dispatch => ({
     addCourseToCart(id) {
         dispatch(addToCart(id))
+    },
+    removeCourseOfCart(id) {
+        dispatch(removeOfCart(id))
     }
 })
 export default connect(mapStateToProps, mapDispatchToProps)(CourseCard)

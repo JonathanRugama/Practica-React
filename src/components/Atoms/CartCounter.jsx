@@ -13,7 +13,7 @@ const mapStateToProps = state => (
 /* Necesita leer el estado */
 {
                  //En el estado global tenemos un atributo cart
-    cartLength: state.cart
+    cartLength: state.cartReducer.cart
 }
 
 )

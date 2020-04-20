@@ -3,8 +3,9 @@ import "../styles/styles.scss"
 import AppRoutes from './AppRoutes';
 import { Provider } from 'react-redux';
 import store from "../redux/store"
+import { getCourseList } from '../redux/actionCreators';
 
-
+store.dispatch(getCourseList())
 /* const cursos = [{
     "title": "React desde cero",
     "image": "https://edteam-media.s3.amazonaws.com/courses/original/5eaaec0b-fa78-4f48-94b6-61b757e1f5fa.png",
