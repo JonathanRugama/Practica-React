@@ -9,6 +9,7 @@ import MainMenu from './Organisms/MainMenu'
 import History from './Pages/History'
 import Home from './Pages/Home'
 import Users from './Pages/Users'
+import CoursesProvider from '../components/Context/CoursesProvider'
 
 /* const cursos = [{
     "title": "React desde cero",
@@ -37,6 +38,8 @@ import Users from './Pages/Users'
 ] */
 const App = () => (
     <>
+    
+      <CoursesProvider>
       <Router> 
           <MainMenu />
           <Switch>
@@ -57,6 +60,7 @@ const App = () => (
             )} />
           </Switch>
       </Router>
+      </CoursesProvider>
       
     </>
     
